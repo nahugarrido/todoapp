@@ -20,4 +20,6 @@ public class TodoappApplication {
 		return new OpenAPI().info(new Info().title("Spring Boot 3 API").version("0.11").description("Sampe app Spring Boot 3 with Swagger").termsOfService("http://swagger.io/terms/").license(new License().name("Apache 2.0").url("http://springdoc.org")));
 	}
 
+	/// make a new entity
+
 }
