@@ -7,12 +7,12 @@ import com.todoapp.todoapp.mapper.TaskInDTOToTask;
 import com.todoapp.todoapp.repository.TaskRepository;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class TaskService {
 
-    // Esta es otra forma de inyectar dependencias (16,17,20,21)
+    // Esta es otra forma de inyectar dependencias (lineas debajo + consctructor)
     // se conoce como inyeccion de dependencias basada en constructor
     private final TaskRepository repository;
     private final TaskInDTOToTask mapper;
@@ -25,5 +25,13 @@ public class TaskService {
     public Task createTask(TaskInDTO taskInDTO) {
         Task task = mapper.map(taskInDTO);
         return this.repository.save(task);
+    }
+
+    public List<Task> findAll() {
+        return this.repository.findAll();
+    }
+
+    public List<Task> findAllByTaskStatus(TaskStatus status) {
+        return this.repository.findAllByTaskstatus(status);
     }
 }
